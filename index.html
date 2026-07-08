@@ -724,6 +724,37 @@
   .fx.in { opacity: 1; }
   @media print { .fx { opacity: 1 !important; } }
 
+
+  /* ===== motion & nav fixes ===== */
+  .waves { position: relative; height: 74px; margin-top: 44px; overflow: hidden; }
+  .wave-layer { position: absolute; bottom: 0; left: 0; width: 200%; height: 100%; }
+  .wave-layer svg { width: 100%; height: 100%; display: block; }
+  .wave-layer svg path { fill: var(--bg); }
+  .wl1 { opacity: .55; animation: roll 12s linear infinite; }
+  .wl2 { animation: roll 7.5s linear infinite reverse; }
+  @keyframes roll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  @keyframes sway-a2 { 0%,100% { transform: rotate(-14deg) translateY(0); } 50% { transform: rotate(3deg) translateY(-5px); } }
+  @keyframes sway-b2 { 0%,100% { transform: rotate(14deg) translateY(0); } 50% { transform: rotate(-3deg) translateY(-5px); } }
+  .anch-amber { animation: sway-b2 3.8s ease-in-out infinite; }
+  .anch-teal { animation: sway-a2 4.6s ease-in-out infinite; }
+
+  @keyframes sunglow { 0%,100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.1); opacity: 1; } }
+  .sun { animation: sunglow 5s ease-in-out infinite; transform-origin: center; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wl1, .wl2, .anch-amber, .anch-teal, .sun { animation: none; }
+  }
+
+  /* nav: back to a full-width bar (no floating pill) */
+  nav.tabs {
+    position: sticky; top: 0; z-index: 30;
+    margin: 0; width: auto; max-width: none;
+    background: var(--bg); border: none; border-bottom: 1px solid var(--line);
+    border-radius: 0; padding: 12px 16px; gap: 8px;
+    box-shadow: none;
+  }
+
   /* ===== print ===== */
   @media print {
     :root, :root[data-theme="dark"] {
@@ -778,7 +809,7 @@
   <h1>חוסן במעברים</h1>
   <p class="sub">אתר מלווה למפגש על העוגנים שמחזיקים אותנו בכניסה למקום חדש — סביב השיר "לתת ולקחת" (שלמה ארצי ודודו טסה)</p>
   <p class="dedication">מוקדש לזכרו של בנימין דסטאו נגוסה הי״ד</p>
-  <div class="waves" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path class="w1" d="M0,55 C240,88 480,28 720,52 C960,76 1200,36 1440,64 L1440,90 L0,90 Z"/><path class="w2" d="M0,42 C240,78 480,8 720,34 C960,62 1200,22 1440,52 L1440,90 L0,90 Z"/></svg></div>
+  <div class="waves" aria-hidden="true"><div class="wave-layer wl1"><svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path d="M0,46 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 L2880,90 L0,90 Z"/></svg></div><div class="wave-layer wl2"><svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path d="M0,58 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 L2880,90 L0,90 Z"/></svg></div></div>
 </header>
 
 <nav class="tabs" role="tablist" aria-label="חלקי האתר">
