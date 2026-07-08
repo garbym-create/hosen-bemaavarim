@@ -726,12 +726,12 @@
 
 
   /* ===== motion & nav fixes ===== */
-  .waves { position: relative; height: 74px; margin-top: 44px; overflow: hidden; }
+  .waves { position: relative; height: 74px; margin-top: 44px; overflow: hidden; overflow-x: clip; overflow-y: visible; }
   .wave-layer { position: absolute; bottom: 0; left: 0; width: 200%; height: 100%; }
   .wave-layer svg { width: 100%; height: 100%; display: block; }
   .wave-layer svg path { fill: var(--bg); }
-  .wl1 { opacity: .55; animation: roll 12s linear infinite; }
-  .wl2 { animation: roll 7.5s linear infinite reverse; }
+  .wl1 { opacity: .55; animation: roll 26s linear infinite; }
+  .wl2 { animation: roll 17s linear infinite reverse; }
   @keyframes roll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   @keyframes sway-a2 { 0%,100% { transform: rotate(-14deg) translateY(0); } 50% { transform: rotate(3deg) translateY(-5px); } }
@@ -799,7 +799,7 @@
 
   /* ===== orange sailboat, fixed at the left, opposite the sun ===== */
   header.site .boat {
-    position: absolute; bottom: 26px; left: clamp(20px, 9%, 150px);
+    position: absolute; bottom: 12px; left: clamp(20px, 9%, 150px);
     width: clamp(52px, 8vw, 84px); height: auto;
     transform-origin: 50% 92%;
     animation: boat-rock 5.5s ease-in-out infinite;
@@ -810,6 +810,8 @@
     50% { transform: rotate(3.5deg) translateY(-4px); }
   }
   @media (prefers-reduced-motion: reduce) { header.site .boat { animation: none; } }
+
+
 
   /* ===== print ===== */
   @media print {
@@ -861,14 +863,13 @@
   <h1>חוסן במעברים</h1>
   <p class="sub">אתר מלווה למפגש על העוגנים שמחזיקים אותנו בכניסה למקום חדש — סביב השיר "לתת ולקחת" (שלמה ארצי ודודו טסה)</p>
   <p class="dedication">מוקדש לזכרו של בנימין דסטאו נגוסה הי״ד</p>
-  <svg class="boat" viewBox="0 0 64 60" aria-hidden="true">
+  <div class="waves" aria-hidden="true"><div class="wave-layer wl1"><svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path d="M0,46 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 L2880,90 L0,90 Z"/></svg></div><svg class="boat" viewBox="0 0 64 60" aria-hidden="true">
     <line x1="32" y1="8" x2="32" y2="42" stroke="#8C5A22" stroke-width="2"/>
     <path d="M34,11 L34,38 L54,38 Z" fill="#E8963E"/>
     <path d="M30,15 L30,38 L14,38 Z" fill="#F2B267"/>
     <path d="M32,7 L41,10 L32,13 Z" fill="#C96F1F"/>
     <path d="M9,42 L55,42 L47,52 Q32,56 17,52 Z" fill="#C96F1F"/>
-  </svg>
-  <div class="waves" aria-hidden="true"><div class="wave-layer wl1"><svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path d="M0,46 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 c90,18 270,-18 360,0 L2880,90 L0,90 Z"/></svg></div><div class="wave-layer wl2"><svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path d="M0,58 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 L2880,90 L0,90 Z"/></svg></div></div>
+  </svg><div class="wave-layer wl2"><svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path d="M0,58 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 c90,16 270,-16 360,0 L2880,90 L0,90 Z"/></svg></div></div>
 </header>
 
 <nav class="tabs" role="tablist" aria-label="חלקי האתר">
